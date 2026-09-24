@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="es-AR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="description" content="MateStudy — Plataforma interactiva de matemática para el sistema educativo argentino. Desde Primaria hasta Facultad/CBC.">
+  <title>MateStudy — Matemática para todos los niveles</title>
+  <link rel="stylesheet" href="styles.css">
+  <!-- KaTeX para fórmulas matemáticas -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css">
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.js"></script>
+  <style>
+    /* Ajustes adicionales para index */
+    #topics-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
+  </style>
+</head>
+<body>
+
+<!-- ═══════════ HERO / HEADER ═══════════ -->
+<section id="hero">
+  <!-- Partículas matemáticas de fondo -->
+  <div class="math-particles" aria-hidden="true"></div>
+
+  <div class="hero-content">
+    <!-- Logo -->
+    <div class="logo-wrap">
+      <div class="logo-icon" aria-hidden="true">√</div>
+      <span class="logo-text">MateStudy</span>
+    </div>
+
+    <p class="hero-tagline">
+      Matemática para el sistema educativo argentino · Desde Primaria hasta la Facultad
+    </p>
+
+    <!-- Buscador -->
+    <div class="search-box" role="search">
+      <!-- Selector de nivel -->
+      <div class="level-filters" role="group" aria-label="Filtrar por nivel educativo">
+        <button class="level-btn active" data-level="all">Todos</button>
+        <button class="level-btn" data-level="primaria">Primaria</button>
+        <button class="level-btn" data-level="secundaria">Secundaria</button>
+        <button class="level-btn" data-level="terciario">Terciario / Ingreso</button>
+        <button class="level-btn" data-level="facultad">Facultad / CBC</button>
+      </div>
+
+      <!-- Barra de búsqueda con autocompletado -->
+      <div class="search-row-wrap" style="display:flex;gap:0.5rem;align-items:stretch">
+        <div class="search-row" style="flex:1;position:relative">
+          <input
+            type="search"
+            id="search-input"
+            placeholder="Buscá un tema: factoreo, derivadas, fracciones..."
+            autocomplete="off"
+            aria-label="Buscar tema de matemática"
+          >
+          <button class="btn-search" onclick="doSearch()">Buscar</button>
+        </div>
+        <ul class="autocomplete-list" id="autocomplete-list" role="listbox" aria-label="Sugerencias de búsqueda"></ul>
+      </div>
+
+      <!-- Tags rápidos -->
+      <div class="quick-tags" aria-label="Búsquedas rápidas">
+        <button class="quick-tag" data-query="ecuación">Ecuación</button>
+        <button class="quick-tag" data-query="factoreo">Factoreo</button>
+        <button class="quick-tag" data-query="derivadas">Derivadas</button>
+        <button class="quick-tag" data-query="límites">Límites</button>
+        <button class="quick-tag" data-query="fracciones">Fracciones</button>
+        <button class="quick-tag" data-query="pitágoras">Pitágoras</button>
+        <button class="quick-tag" data-query="integrales">Integrales</button>
+        <button class="quick-tag" data-query="matrices">Matrices</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ HOME — CATÁLOGO POR NIVEL ═══════════ -->
+<main>
+  <section id="home-section" aria-label="Catálogo de temas por nivel">
+    <!-- Se renderiza con JS -->
+  </section>
+
+  <!-- ═══════════ RESULTADOS DE BÚSQUEDA ═══════════ -->
+  <section id="results-section" aria-label="Resultados de búsqueda">
+    <div class="results-header">
+      <span class="results-title" id="results-title">Resultados</span>
+      <span class="results-count" id="results-count"></span>
+    </div>
+    <div id="topics-grid" class="topics-grid"></div>
+  </section>
+
+  <!-- ═══════════ VISTA DE TEMA ═══════════ -->
+  <article id="topic-view" aria-label="Vista de tema de matemática">
+    <!-- Se renderiza dinámicamente con JS -->
+  </article>
+</main>
+
+<!-- ═══════════ FOOTER ═══════════ -->
+<footer>
+  <p>
+    <strong>MateStudy</strong> — Matemática para el sistema educativo argentino 🇦🇷
+    · Desde Primaria (1.° a 7.° grado) hasta Facultad / CBC
+  </p>
+  <p style="margin-top:0.4rem">
+    Todos los ejemplos y ejercicios están adaptados al currículum argentino vigente.
+  </p>
+</footer>
+
+<!-- Toast -->
+<div id="toast" role="status" aria-live="polite"></div>
+
+<script src="script.js"></script>
+</body>
+</html>
